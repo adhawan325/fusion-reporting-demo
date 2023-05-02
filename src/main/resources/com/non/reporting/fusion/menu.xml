@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://com.non.reporting.fusion/menu.application" insertBefore="administration">
+        <item screen="User.browse" caption="msg://com.non.reporting.fusion.screen.user/UserBrowse.caption"/>
+        <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="ProjectsInPlan.browse"
+              caption="msg://com.non.reporting.fusion.screen.projectsinplan/projectsInPlanBrowse.menu"/>
+        <item screen="Schedule.browse"
+              caption="msg://com.non.reporting.fusion.screen.schedule/projectsInPlanBrowse.menu"/>
+        <item screen="LookupTypeCode.browse"
+              caption="msg://com.non.reporting.fusion.screen.lookuptypecode/projectsInPlanBrowse.menu"/>
+        <item screen="Campus.browse" caption="msg://com.non.reporting.fusion.screen.campus/projectsInPlanBrowse.menu"/>
+        <item screen="FiscalYear.browse"
+              caption="msg://com.non.reporting.fusion.screen.fiscalyear/projectsInPlanBrowse.menu"/>
+        <item screen="ServiceProvider.browse"
+              caption="msg://com.non.reporting.fusion.screen.serviceprovider/projectsInPlanBrowse.menu"/>
+        <item screen="FourteenDRequest.browse"
+              caption="msg://com.non.reporting.fusion.screen.fourteendrequest/projectsInPlanBrowse.menu"/>
+        <item screen="Region.browse" caption="msg://com.non.reporting.fusion.screen.region/projectsInPlanBrowse.menu"/>
+        <item screen="LookUp.browse" caption="msg://com.non.reporting.fusion.screen.lookup/projectsInPlanBrowse.menu"/>
+        <item screen="Project.browse"
+              caption="msg://com.non.reporting.fusion.screen.project/projectsInPlanBrowse.menu"/>
+        <item screen="Invoice.browse"
+              caption="msg://com.non.reporting.fusion.screen.invoice/projectsInPlanBrowse.menu"/>
+        <item screen="Plan_.browse" caption="msg://com.non.reporting.fusion.screen.plan/projectsInPlanBrowse.menu"/>
+        <item screen="District.browse"
+              caption="msg://com.non.reporting.fusion.screen.district/projectsInPlanBrowse.menu"/>
+        <item screen="ResourcePrivilege.browse"
+              caption="msg://com.non.reporting.fusion.screen.resourceprivilege/projectsInPlanBrowse.menu"/>
+        <item screen="QuarterlyReportForProject.browse"
+              caption="msg://com.non.reporting.fusion.screen.quarterlyreportforproject/projectsInPlanBrowse.menu"/>
+        <item screen="BuildingsInProject.browse"
+              caption="msg://com.non.reporting.fusion.screen.buildingsinproject/buildingsInProjectBrowse.menu"/>
+    </menu>
+
+</menu-config>

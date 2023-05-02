@@ -1,0 +1,24 @@
+<fetchPlans xmlns="http://jmix.io/schema/core/fetch-plans">
+    <fetchPlan entity="ProjectsInPlan" name="projectsInPlan-fetch-plan" extends="_base">
+        <property name="campusCode" fetchPlan="_base" fetch="JOIN">
+            <property name="districtId" fetchPlan="_base" fetch="JOIN">
+                <property name="regionId" fetchPlan="_base" fetch="JOIN"/>
+            </property>
+        </property>
+        <property name="plansId" fetchPlan="_base" fetch="JOIN">
+            <property name="districtId" fetchPlan="_base" fetch="JOIN">
+            </property>
+            <property name="endYearId" fetchPlan="_base" fetch="JOIN"/>
+            <property name="startYearId" fetchPlan="_base" fetch="JOIN"/>
+            <property name="submissionYearId" fetchPlan="_base" fetch="JOIN">
+                <property name="lookupTypeId" fetchPlan="_base" fetch="JOIN"/>
+            </property>
+        </property>
+        <property name="projectCategoryId" fetchPlan="_base" fetch="JOIN">
+            <property name="lookupTypeId" fetchPlan="_base" fetch="JOIN"/>
+        </property>
+        <property name="projectStatusId" fetchPlan="_base" fetch="JOIN">
+            <property name="lookupTypeId" fetchPlan="_base" fetch="JOIN"/>
+        </property>
+    </fetchPlan>
+</fetchPlans>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://projectsInPlanEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="invoiceDc"
+                  class="com.non.reporting.fusion.entity.Invoice">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="scrollBox">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="invoiceDc">
+                <column width="350px">
+                    <textArea id="businessKeyField" property="businessKey" rows="5"/>
+                    <textField id="claimTypeField" property="claimType"/>
+                    <textArea id="createdByField" property="createdBy" rows="5"/>
+                    <dateField id="createdOnField" property="createdOn"/>
+                    <textField id="currentStatusIdField" property="currentStatusId"/>
+                    <textField id="districtIdField" property="districtId"/>
+                    <dateField id="endDateForExpensesField" property="endDateForExpenses"/>
+                    <textField id="isDeletedField" property="isDeleted"/>
+                    <textArea id="modifiedByField" property="modifiedBy" rows="5"/>
+                    <dateField id="modifiedOnField" property="modifiedOn"/>
+                    <textField id="phaseIdField" property="phaseId"/>
+                    <textArea id="projectBusinessKeyField" property="projectBusinessKey" rows="5"/>
+                    <textArea id="reappropriationNoteField" property="reappropriationNote" rows="5"/>
+                    <dateField id="startDateForExpensesField" property="startDateForExpenses"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://projectsInPlanBrowse.caption"
+        focusComponent="serviceProvidersTable">
+    <data readOnly="true">
+        <collection id="serviceProvidersDc"
+                    class="com.non.reporting.fusion.entity.ServiceProvider">
+            <fetchPlan extends="_base">
+                <property name="invoiceId"/>
+            </fetchPlan>
+            <loader id="serviceProvidersDl">
+                <query>
+                    <![CDATA[select e from ServiceProvider e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="serviceProvidersTable" spacing="true">
+        <filter id="filter"
+                dataLoader="serviceProvidersDl">
+            <properties include=".*"/>
+        </filter>
+        <table id="serviceProvidersTable"
+               width="100%"
+               dataContainer="serviceProvidersDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="budgetLineItem"/>
+                <column id="createdBy"/>
+                <column id="createdOn"/>
+                <column id="invoiceId"/>
+                <column id="isDeleted"/>
+                <column id="modifiedBy"/>
+                <column id="modifiedOn"/>
+                <column id="name"/>
+                <column id="serviceItem"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="serviceProvidersTable.create"/>
+                <button id="editBtn" action="serviceProvidersTable.edit"/>
+                <button id="removeBtn" action="serviceProvidersTable.remove"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

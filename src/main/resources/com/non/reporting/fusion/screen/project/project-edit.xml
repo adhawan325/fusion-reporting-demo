@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://projectsInPlanEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="projectDc"
+                  class="com.non.reporting.fusion.entity.Project">
+            <fetchPlan extends="_base">
+                <property name="campusId" fetchPlan="_instance_name"/>
+            </fetchPlan>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="scrollBox">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="projectDc">
+                <column width="350px">
+                    <entityPicker id="campusIdField" property="campusId">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                    <textField id="categoryCodeIdField" property="categoryCodeId"/>
+                    <textArea id="createdByField" property="createdBy" rows="5"/>
+                    <dateField id="createdOnField" property="createdOn"/>
+                    <textField id="deliveryTypeCodeIdField" property="deliveryTypeCodeId"/>
+                    <textArea id="descriptionField" property="description" rows="5"/>
+                    <textField id="isDeletedField" property="isDeleted"/>
+                    <textField id="legacyProjectIdField" property="legacyProjectId"/>
+                    <textArea id="modifiedByField" property="modifiedBy" rows="5"/>
+                    <dateField id="modifiedOnField" property="modifiedOn"/>
+                    <textArea id="nameField" property="name" rows="5"/>
+                    <textField id="occupancyYearField" property="occupancyYear"/>
+                    <textArea id="projectStatusField" property="projectStatus" rows="5"/>
+                    <textField id="projectStatusIdField" property="projectStatusId"/>
+                    <textField id="titleField" property="title"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

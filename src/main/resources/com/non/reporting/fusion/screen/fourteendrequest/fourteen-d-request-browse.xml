@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://projectsInPlanBrowse.caption"
+        focusComponent="fourteenDRequestsTable">
+    <data readOnly="true">
+        <collection id="fourteenDRequestsDc"
+                    class="com.non.reporting.fusion.entity.FourteenDRequest">
+            <fetchPlan extends="_base"/>
+            <loader id="fourteenDRequestsDl">
+                <query>
+                    <![CDATA[select e from FourteenDRequest e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="fourteenDRequestsTable" spacing="true">
+        <filter id="filter"
+                dataLoader="fourteenDRequestsDl">
+            <properties include=".*"/>
+        </filter>
+        <table id="fourteenDRequestsTable"
+               width="100%"
+               dataContainer="fourteenDRequestsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="acctFicalYearDescription"/>
+                <column id="actionRequestedDate"/>
+                <column id="additionalComments"/>
+                <column id="budgetInformation"/>
+                <column id="ceqaComplianceChoiceId"/>
+                <column id="chancellorOfficeName"/>
+                <column id="chancellorOfficeProcessDate"/>
+                <column id="chapterItemCPhaseLabel"/>
+                <column id="chapterItemEPhaseLabel"/>
+                <column id="chapterItemPPhaseLabel"/>
+                <column id="chapterItemWPhaseLabel"/>
+                <column id="costFundChangeId"/>
+                <column id="createdBy"/>
+                <column id="createdOn"/>
+                <column id="dofApprovarDate"/>
+                <column id="dofApprovarName"/>
+                <column id="encumberAmount"/>
+                <column id="encumberCodeId"/>
+                <column id="encumberIndicator"/>
+                <column id="fiscalProjectId"/>
+                <column id="fiscalYear"/>
+                <column id="isApproved"/>
+                <column id="isChapterItemForCPhaseSelected"/>
+                <column id="isChapterItemForEPhaseSelected"/>
+                <column id="isChapterItemForPPhaseSelected"/>
+                <column id="isChapterItemForWPhaseSelected"/>
+                <column id="isDelegatedPwApproved"/>
+                <column id="isDeleted"/>
+                <column id="isDofApproved"/>
+                <column id="isPwApproved"/>
+                <column id="isRequiredAction"/>
+                <column id="isRequiredActionText"/>
+                <column id="lastActionRequestedDate"/>
+                <column id="modifiedBy"/>
+                <column id="modifiedOn"/>
+                <column id="projectBusinessKey"/>
+                <column id="projectCloseoutDate"/>
+                <column id="projectCompleteDate"/>
+                <column id="projectManagerName"/>
+                <column id="projectManagerSignDate"/>
+                <column id="projectOccupyDate"/>
+                <column id="scopeChangesId"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="fourteenDRequestsTable.create"/>
+                <button id="editBtn" action="fourteenDRequestsTable.edit"/>
+                <button id="removeBtn" action="fourteenDRequestsTable.remove"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

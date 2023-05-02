@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://projectsInPlanEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="fourteenDRequestDc"
+                  class="com.non.reporting.fusion.entity.FourteenDRequest">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="scrollBox">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="fourteenDRequestDc">
+                <column width="350px">
+                    <textArea id="acctFicalYearDescriptionField" property="acctFicalYearDescription" rows="5"/>
+                    <dateField id="actionRequestedDateField" property="actionRequestedDate"/>
+                    <textArea id="additionalCommentsField" property="additionalComments" rows="5"/>
+                    <textArea id="budgetInformationField" property="budgetInformation" rows="5"/>
+                    <textField id="ceqaComplianceChoiceIdField" property="ceqaComplianceChoiceId"/>
+                    <textArea id="chancellorOfficeNameField" property="chancellorOfficeName" rows="5"/>
+                    <dateField id="chancellorOfficeProcessDateField" property="chancellorOfficeProcessDate"/>
+                    <textArea id="chapterItemCPhaseLabelField" property="chapterItemCPhaseLabel" rows="5"/>
+                    <textArea id="chapterItemEPhaseLabelField" property="chapterItemEPhaseLabel" rows="5"/>
+                    <textArea id="chapterItemPPhaseLabelField" property="chapterItemPPhaseLabel" rows="5"/>
+                    <textArea id="chapterItemWPhaseLabelField" property="chapterItemWPhaseLabel" rows="5"/>
+                    <textField id="costFundChangeIdField" property="costFundChangeId"/>
+                    <textArea id="createdByField" property="createdBy" rows="5"/>
+                    <dateField id="createdOnField" property="createdOn"/>
+                    <dateField id="dofApprovarDateField" property="dofApprovarDate"/>
+                    <textArea id="dofApprovarNameField" property="dofApprovarName" rows="5"/>
+                    <textField id="encumberAmountField" property="encumberAmount"/>
+                    <textField id="encumberCodeIdField" property="encumberCodeId"/>
+                    <textField id="encumberIndicatorField" property="encumberIndicator"/>
+                    <textArea id="fiscalProjectIdField" property="fiscalProjectId" rows="5"/>
+                    <textField id="fiscalYearField" property="fiscalYear"/>
+                    <checkBox id="isApprovedField" property="isApproved"/>
+                    <checkBox id="isChapterItemForCPhaseSelectedField" property="isChapterItemForCPhaseSelected"/>
+                    <checkBox id="isChapterItemForEPhaseSelectedField" property="isChapterItemForEPhaseSelected"/>
+                    <checkBox id="isChapterItemForPPhaseSelectedField" property="isChapterItemForPPhaseSelected"/>
+                    <checkBox id="isChapterItemForWPhaseSelectedField" property="isChapterItemForWPhaseSelected"/>
+                    <checkBox id="isDelegatedPwApprovedField" property="isDelegatedPwApproved"/>
+                    <textField id="isDeletedField" property="isDeleted"/>
+                    <checkBox id="isDofApprovedField" property="isDofApproved"/>
+                    <checkBox id="isPwApprovedField" property="isPwApproved"/>
+                    <checkBox id="isRequiredActionField" property="isRequiredAction"/>
+                    <textArea id="isRequiredActionTextField" property="isRequiredActionText" rows="5"/>
+                    <dateField id="lastActionRequestedDateField" property="lastActionRequestedDate"/>
+                    <textArea id="modifiedByField" property="modifiedBy" rows="5"/>
+                    <dateField id="modifiedOnField" property="modifiedOn"/>
+                    <textArea id="projectBusinessKeyField" property="projectBusinessKey" rows="5"/>
+                    <dateField id="projectCloseoutDateField" property="projectCloseoutDate"/>
+                    <dateField id="projectCompleteDateField" property="projectCompleteDate"/>
+                    <textArea id="projectManagerNameField" property="projectManagerName" rows="5"/>
+                    <dateField id="projectManagerSignDateField" property="projectManagerSignDate"/>
+                    <dateField id="projectOccupyDateField" property="projectOccupyDate"/>
+                    <textField id="scopeChangesIdField" property="scopeChangesId"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

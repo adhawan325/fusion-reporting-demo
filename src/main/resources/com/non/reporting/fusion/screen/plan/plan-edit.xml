@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://projectsInPlanEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="planDc"
+                  class="com.non.reporting.fusion.entity.Plan">
+            <fetchPlan extends="_base">
+                <property name="districtId"/>
+                <property name="endYearId" fetchPlan="_instance_name"/>
+                <property name="startYearId" fetchPlan="_instance_name"/>
+                <property name="submissionYearId" fetchPlan="_instance_name"/>
+            </fetchPlan>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="scrollBox">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="planDc">
+                <column width="350px">
+                    <textArea id="createdByField" property="createdBy" rows="5"/>
+                    <dateField id="createdOnField" property="createdOn"/>
+                    <textArea id="currentStateField" property="currentState" rows="5"/>
+                    <textField id="currentStatusIdField" property="currentStatusId"/>
+                    <entityPicker id="districtIdField" property="districtId">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                    <entityPicker id="endYearIdField" property="endYearId">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                    <textField id="isDeletedField" property="isDeleted"/>
+                    <textArea id="modifiedByField" property="modifiedBy" rows="5"/>
+                    <dateField id="modifiedOnField" property="modifiedOn"/>
+                    <entityPicker id="startYearIdField" property="startYearId">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                    <entityPicker id="submissionYearIdField" property="submissionYearId">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
